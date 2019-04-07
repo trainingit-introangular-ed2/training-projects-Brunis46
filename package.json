@@ -9,7 +9,7 @@
     "ng": "ng",
     "pub": "npm run build:pub && npm run push",
     "push": "git add * && git commit -m 'pub' && git push",
-    "start:prod": "npm run build:prod && npm run http-server",
+    "start:prod": "npm run build:prod && http-server",
     "start": "ng serve -o --port 4279",
     "test": "ng test"
   },
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
-    "@angular/cli": "~7.3.7",
+    "@angular/cli": "^7.3.8",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~2.8.8",

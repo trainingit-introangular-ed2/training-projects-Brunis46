@@ -1,0 +1,13 @@
+footer {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  font-style: italic;
+  color: gray;
+}
+
+footer .right {
+  float: right;
+}
