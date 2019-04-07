@@ -8,7 +8,7 @@
     "lint": "ng lint",
     "ng": "ng",
     "pub": "npm run build:pub && npm run push",
-    "push": "git add * && git commit -m 'pub' && git push",
+    "push": "git add * && git commit -m 'pub' && git push origin master",
     "start:prod": "npm run build:prod && http-server",
     "start": "ng serve -o --port 4279",
     "test": "ng test"
