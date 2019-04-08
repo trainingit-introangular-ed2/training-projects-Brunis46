@@ -3,13 +3,14 @@
   "version": "2.0.0",
   "scripts": {
     "build:prod": "ng build --prod",
-    "build:pub": "ng build --prod --output-path docs --base-href https://github.com/trainingit-introangular-ed2/training-projects-Brunis46",
+    "build:pub": "ng build --prod --output-path docs --base-href  https://trainingit-introangular-ed2.github.io/training-projects-Brunis46",
     "e2e": "ng e2e",
+    "http-server": "http-server ./dist/training-projects/ -c-1 -p4271 -a localhost -o",
     "lint": "ng lint",
     "ng": "ng",
     "pub": "npm run build:pub && npm run push",
     "push": "git add * && git commit -m 'pub' && git push origin master",
-    "start:prod": "npm run build:prod && http-server",
+    "start:prod": "npm run build:prod && npm run http-server",
     "start": "ng serve -o --port 4279",
     "test": "ng test"
   },
