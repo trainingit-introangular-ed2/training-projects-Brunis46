@@ -1,0 +1,22 @@
+.center-table {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.center-table th {
+  text-align: center;
+}
+
+.center-table td {
+  text-align: center;
+}
+
+.center-table td + td,
+.center-table th + th {
+  border-left: 1px solid gray;
+}
+
+button.right-button {
+  float: right;
+  margin-right: 15%;
+}
