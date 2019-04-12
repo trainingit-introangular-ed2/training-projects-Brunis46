@@ -1,21 +1,23 @@
-<table class="center-table">
-  <caption><b>Lista de proyectos</b></caption>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Nombre</th>
-      <th>Ver</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of projects">
-      <td data-label="Id">{{ p.id }}</td>
-      <td data-label="Name">{{ p.name }}</td>
-      <td data-label="Ver"><span class="icon-info"
-              routerLink="{{ p.id }}"></span></td>
-    </tr>
-  </tbody>
-</table>
+<div class="scrollable">
+  <table class="center-table">
+    <caption><b>Lista de proyectos</b></caption>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Ver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of projects">
+        <td data-label="Id">{{ p.id }}</td>
+        <td data-label="Name">{{ p.name }}</td>
+        <td data-label="Ver"><span class="icon-info"
+                routerLink="{{ p.id }}"></span></td>
+      </tr>
+    </tbody>
+  </table>
 
-<button class="primary right-button"
-        routerLink="new">Añadir nuevo proyecto</button>
+  <button class="primary right-button"
+          routerLink="new">Añadir nuevo proyecto</button>
+</div>

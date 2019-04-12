@@ -1,6 +1,7 @@
 .center-table {
   width: 40%;
   margin: 0 auto;
+  max-height: 100%;
 }
 
 .center-table th {
@@ -19,4 +20,11 @@
 button.right-button {
   float: right;
   margin-right: 15%;
+}
+
+div.scrollable {
+  padding-bottom: 2rem;
+  overflow-y: scroll;
+  margin: 0 auto;
+  max-height: 560px;
 }
