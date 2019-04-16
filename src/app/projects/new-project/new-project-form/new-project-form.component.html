@@ -1,0 +1,14 @@
+<form>
+  <fieldset>
+    <legend>Añadir proyecto</legend>
+    <label for="name">Nombre</label>
+    <input type="text"
+           id="name"
+           [(ngModel)]="this.name"
+           name="name"
+           placeholder="Nombre" />
+    <button class="primary"
+            (click)="addProject.emit(this.name)"
+            routerLink="">Añadir</button>
+  </fieldset>
+</form>
