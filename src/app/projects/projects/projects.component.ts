@@ -9,10 +9,20 @@ import { Project } from './projects.interface';
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[];
+  projectNameSearch: string;
 
   constructor(projectService: ProjectsService) {
     this.projects = projectService.getProjects();
   }
 
   ngOnInit() {}
+
+  public searchProjectNameById(id: number): void {
+    const project = this.projects.find(x => x.id === id);
+    if (project != null) {
+      this.projectNameSearch = project.name;
+    } else {
+      this.projectNameSearch = '';
+    }
+  }
 }

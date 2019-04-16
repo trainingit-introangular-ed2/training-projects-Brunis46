@@ -1,19 +1,11 @@
-<div style="text-align:center">
-  <h1>
-    Bienvenido a {{ title }}
-  </h1>
-  <img alt="Logo App"
-       width="150px"
-       src="assets/project-logo.png">
-</div>
+<header>
+  <a href="#"
+     class="logo"><img alt="Logo App"
+         width="40px"
+         src="assets/project-logo.png"> {{ title }}</a>
+  <a routerLink=""
+     class="button hidden-sm">Inicio</a>
+  <a routerLink="projects"
+     class="button hidden-sm">Proyectos</a>
 
-<header class="sticky row">
-  <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
-    <label for="drawer-checkbox"
-           class="button drawer-toggle"></label>
-    <a routerLink=""
-       class="button hidden-sm">Inicio</a>
-    <a routerLink="projects"
-       class="button hidden-sm">Proyectos</a>
-  </div>
 </header>
