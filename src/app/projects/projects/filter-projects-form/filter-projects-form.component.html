@@ -1,3 +1,19 @@
-<p>
-  filter-projects-form works!
-</p>
+<form>
+  <fieldset>
+    <legend>Buscar proyecto</legend>
+    <div class="input-group row">
+      <input type="number"
+             id="id"
+             placeholder="Id"
+             name="id"
+             class="input1"
+             [(ngModel)]="this.id"
+             (input)="searchProjectName.emit(this.id)" />
+      <input type="text"
+             id="name"
+             class="input2"
+             value="{{projectName}}"
+             disabled />
+    </div>
+  </fieldset>
+</form>
