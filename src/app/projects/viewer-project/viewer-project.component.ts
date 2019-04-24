@@ -15,8 +15,15 @@ export class ViewerProjectComponent implements OnInit {
     // Cogemos id de la URL
     const id = activateRoute.snapshot.params['id'];
 
-    // Buscamos por Id
-    this.project_selected = projectsService.findProject(id);
+    // Buscamos por Id en remoto
+    projectsService.getRemoteProjects().subscribe(res => {
+      if (res != null && res !== undefined) {
+        const project: Project = res.find(x => x.id == id);
+        this.project_selected = project !== undefined ? project : { id: -1, name: 'NO SE ENCONTRÓ EL PROYECTO' };
+      } else {
+        this.project_selected = { id: -1, name: 'NO SE ENCONTRÓ EL PROYECTO' };
+      }
+    });
   }
 
   ngOnInit() {}

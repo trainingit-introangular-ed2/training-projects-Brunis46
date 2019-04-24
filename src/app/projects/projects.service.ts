@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Project } from './projects/projects.interface';
 
@@ -9,12 +9,10 @@ import { Project } from './projects/projects.interface';
   providedIn: 'root'
 })
 export class ProjectsService {
-  private projects$: Observable<Project[]> = this.getProjectsApi();
-
   constructor(private httpClient: HttpClient) {}
 
-  public getProjectsAsync(): Observable<Project[]> {
-    return this.projects$;
+  public getRemoteProjects(): Observable<Project[]> {
+    return this.getProjectsApi();
   }
 
   public getProjects(): Project[] {
@@ -33,19 +31,23 @@ export class ProjectsService {
     environment.projects.push(project);
   }
 
-  private projectDataToDTO(projectsData): Project[] {
-    return Object.keys(projectsData).map(key => ({
-      id: projectsData[key].id,
-      name: projectsData[key].name
-    }));
+  public addRemoteProject(project: Project) {
+    this.httpClient.post(environment.urlApiProjects, project).subscribe();
+  }
+
+  private projectDataToDTO(projectsData: any): Project[] {
+    if (projectsData != null) {
+      return Object.keys(projectsData).map(key => ({
+        id: projectsData[key].id,
+        name: projectsData[key].name
+      }));
+    } else {
+      return [];
+    }
   }
 
   private getProjectsApi(): Observable<Project[]> {
     const projects$ = this.httpClient.get(environment.urlApiProjects);
-    return projects$.pipe(
-      tap(d => console.log('look = ' + d[0].id)),
-      map(this.projectDataToDTO),
-      tap(d => console.log('look = ' + d[0]))
-    );
+    return projects$.pipe(map(this.projectDataToDTO));
   }
 }

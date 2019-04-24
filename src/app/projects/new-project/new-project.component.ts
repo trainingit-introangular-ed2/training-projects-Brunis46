@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../projects.service';
+import { Project } from '../projects/projects.interface';
 
 @Component({
   selector: 'app-new-project',
@@ -12,11 +13,11 @@ export class NewProjectComponent implements OnInit {
   ngOnInit() {}
 
   public saveProject(nameP: string) {
-    const new_project = {
-      id: this.projectsService.getNumProjects() + 1,
+    const new_project: Project = {
+      id: Math.floor(Math.random() * 100 + 1),
       name: nameP
     };
 
-    this.projectsService.addProject(new_project);
+    this.projectsService.addRemoteProject(new_project);
   }
 }

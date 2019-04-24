@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Project } from '../projects.interface';
 
 @Component({
@@ -7,7 +8,7 @@ import { Project } from '../projects.interface';
   styleUrls: ['./projects-list.component.css']
 })
 export class ProjectsListComponent implements OnInit {
-  @Input() projects: Project[];
+  @Input() projects: Observable<Project[]>;
 
   constructor() {}
 

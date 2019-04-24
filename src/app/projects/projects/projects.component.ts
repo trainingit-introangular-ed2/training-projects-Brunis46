@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { ProjectsService } from '../projects.service';
 import { Project } from './projects.interface';
 
@@ -8,21 +9,23 @@ import { Project } from './projects.interface';
   styleUrls: []
 })
 export class ProjectsComponent implements OnInit {
-  projects: Project[];
+  projects: Observable<Project[]>;
   projectNameSearch: string;
 
   constructor(projectService: ProjectsService) {
-    projectService.getProjectsAsync().subscribe(projects => (this.projects = projects));
+    this.projects = projectService.getRemoteProjects();
   }
 
   ngOnInit() {}
 
   public searchProjectNameById(id: number): void {
-    const project = this.projects.find(x => x.id === id);
-    if (project != null) {
-      this.projectNameSearch = project.name;
-    } else {
-      this.projectNameSearch = '';
-    }
+    this.projects.subscribe(res => {
+      if (res != null && res !== undefined) {
+        const project: Project = res.find(x => x.id === id);
+        this.projectNameSearch = project !== undefined ? project.name : '';
+      } else {
+        this.projectNameSearch = '';
+      }
+    });
   }
 }

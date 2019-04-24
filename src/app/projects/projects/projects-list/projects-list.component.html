@@ -8,8 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let p of projects">
-        <td data-label="Id">>{{ p.id }}</td>
+      <tr *ngFor="let p of projects | async">
         <td data-label="Name">{{ p.name }}</td>
         <td data-label="Ver"><span class="icon-info"
                 routerLink="{{ p.id }}"></span></td>

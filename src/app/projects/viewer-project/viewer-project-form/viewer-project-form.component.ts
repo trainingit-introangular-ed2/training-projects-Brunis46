@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Project } from '../../projects/projects.interface';
 
 @Component({
   selector: 'app-viewer-project-form',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./viewer-project-form.component.css']
 })
 export class ViewerProjectFormComponent implements OnInit {
-  @Input() public id: number;
-  @Input() public name: string;
+  @Input() public project: Project;
 
   constructor() {}
 
