@@ -1,1 +1,4 @@
-<app-new-project-form (addProject)="saveProject($event)"></app-new-project-form>
+<app-new-project-form (addProject)="saveProject($event)"
+                      [message]="this.message"></app-new-project-form>
+<button class="primary"
+        routerLink="..">Volver</button>

@@ -8,6 +8,10 @@ import { Project } from '../projects/projects.interface';
   styleUrls: []
 })
 export class NewProjectComponent implements OnInit {
+  private MESSAGE_SUCCESS = 'Proyecto añadido con éxito!';
+  private MESSAGE_FAIL = 'Ha ocurrido un error al guardar el proyecto.';
+  public message: string;
+
   constructor(private projectsService: ProjectsService) {}
 
   ngOnInit() {}
@@ -19,5 +23,6 @@ export class NewProjectComponent implements OnInit {
     };
 
     this.projectsService.addRemoteProject(new_project);
+    this.message = this.MESSAGE_SUCCESS;
   }
 }

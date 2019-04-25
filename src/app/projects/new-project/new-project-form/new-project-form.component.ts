@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-new-project-form',
@@ -8,8 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NewProjectFormComponent implements OnInit {
   @Output() public addProject = new EventEmitter<string>();
   public name: string;
+  @Input() public message: string;
 
   constructor() {}
 
   ngOnInit() {}
+
+  public clearNewProjectMessage() {
+    this.message = '';
+  }
 }

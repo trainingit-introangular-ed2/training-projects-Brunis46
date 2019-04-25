@@ -5,10 +5,11 @@
     <input type="text"
            id="name"
            [(ngModel)]="this.name"
+           (keydown)="this.clearNewProjectMessage()"
            name="name"
            placeholder="Nombre" />
     <button class="primary"
-            (click)="addProject.emit(this.name)"
-            routerLink="../">Añadir</button>
+            (click)="addProject.emit(this.name)">Añadir</button>
+    <strong>{{this.message}}</strong>
   </fieldset>
 </form>
