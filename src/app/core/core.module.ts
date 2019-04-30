@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { AppRoutingModule } from '../app-routing.module';
-import { FooterComponent } from './layout/footer/footer.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { LayoutComponent } from './layout/layout.component';
-import { MainComponent } from './layout/main/main.component';
+import { DesignComponent } from './design/design.component';
+import { FooterComponent } from './design/footer/footer.component';
 
 @NgModule({
-  declarations: [LayoutComponent, HeaderComponent, MainComponent, FooterComponent],
-  imports: [CommonModule, AppRoutingModule],
-  exports: [LayoutComponent]
+  declarations: [FooterComponent, DesignComponent],
+  imports: [CommonModule, AppRoutingModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule],
+  exports: [DesignComponent]
 })
 export class CoreModule {}
