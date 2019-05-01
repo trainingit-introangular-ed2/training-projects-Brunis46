@@ -1,8 +1,9 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
+import { NotificationsService } from '../notifications.service';
 
 @Component({
   selector: 'app-design',
@@ -31,8 +32,22 @@ import { environment } from '../../../environments/environment';
 })
 export class DesignComponent {
   title = environment.appName;
+  public lastMessage: any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset).pipe(map(result => result.matches));
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private notificacionesService: NotificationsService) {
+    this.refreshData();
+  }
+
+  private refreshData(): void {
+    this.notificacionesService.select$().subscribe(msgs => {
+      this.lastMessage = msgs.slice(msgs.length - 1, msgs.length);
+      this.subscribeToData();
+    });
+  }
+
+  private subscribeToData(): void {
+    timer(1000).subscribe(() => this.refreshData());
+  }
 }

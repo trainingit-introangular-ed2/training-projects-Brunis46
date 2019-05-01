@@ -1,39 +1,44 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatButtonModule,
-  MatIconModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatInputModule,
   MatListModule,
   MatPaginatorModule,
+  MatRadioModule,
+  MatSelectModule,
   MatSidenavModule,
   MatSortModule,
   MatTableModule,
   MatTabsModule,
   MatToolbarModule
 } from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+import { FormComponent } from './new-project/form/form.component';
 import { NewProjectFormComponent } from './new-project/new-project-form/new-project-form.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ProjectsRoutingModule } from './projects-routing.module';
-import { FilterProjectsFormComponent } from './projects/filter-projects-form/filter-projects-form.component';
+import { FilterComponent } from './projects/filter/filter.component';
 import { ListComponent } from './projects/list/list.component';
-import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { ViewerProjectFormComponent } from './viewer-project/viewer-project-form/viewer-project-form.component';
 import { ViewerProjectComponent } from './viewer-project/viewer-project.component';
+import { ProjectFormComponent } from './viewer-project/project-form/project-form.component';
 
 @NgModule({
   declarations: [
     ProjectsComponent,
     ViewerProjectComponent,
+    FormComponent,
     NewProjectComponent,
-    ViewerProjectFormComponent,
-    FilterProjectsFormComponent,
-    ProjectsListComponent,
     ListComponent,
     NewProjectFormComponent,
-    ListComponent
+    ListComponent,
+    FilterComponent,
+    ProjectFormComponent
   ],
   imports: [
     CommonModule,
@@ -48,7 +53,14 @@ import { ViewerProjectComponent } from './viewer-project/viewer-project.componen
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class ProjectsModule {}

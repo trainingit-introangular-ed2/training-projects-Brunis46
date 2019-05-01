@@ -1,0 +1,34 @@
+<form [formGroup]="projectForm"
+      novalidate>
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Información de proyecto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Id</mat-label>
+            <input matInput
+                   formControlName="id">
+
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput
+                   formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+
+    </mat-card-content>
+
+  </mat-card>
+  <button mat-raised-button
+          color="primary"
+          type="button"
+          routerLink="..">Volver</button>
+</form>

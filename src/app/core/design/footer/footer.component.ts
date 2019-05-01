@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 
 @Component({
@@ -7,7 +7,8 @@ import { environment } from '../../../../environments/environment';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  title = '© 2019 ' + environment.appName + ' All Rights Reserved';
+  public title = '© 2019 ' + environment.appName + ' All Rights Reserved';
+  @Input() lastMessage: string;
 
   constructor() {}
 

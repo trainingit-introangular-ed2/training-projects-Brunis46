@@ -9,6 +9,10 @@ footer {
   color: gray;
 }
 
+footer .center {
+  margin-left: 25%;
+}
+
 footer .right {
   float: right;
 }

@@ -3,7 +3,10 @@
     <app-design-list [projects]="this.projects"></app-design-list>
   </mat-tab>
   <mat-tab label="Buscar proyecto">
-    <app-filter-projects-form [projectName]="this.projectNameSearch"
-                              (searchProjectName)="this.searchProjectNameById($event)"></app-filter-projects-form>
+    <app-design-filter [projectName]="this.projectNameSearch"
+                       (searchProjectName)="this.searchProjectNameById($event)"></app-design-filter>
+  </mat-tab>
+  <mat-tab label="Añadir proyecto">
+    <app-new-project></app-new-project>
   </mat-tab>
 </mat-tab-group>

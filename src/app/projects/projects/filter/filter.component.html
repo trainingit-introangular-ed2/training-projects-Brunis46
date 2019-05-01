@@ -1,0 +1,48 @@
+<form [formGroup]="searchProjectForm"
+      novalidate
+      (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Buscar proyecto</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="standard"
+                          class="full-width">
+            <mat-label>Id del proyecto</mat-label>
+            <input matInput
+                   #id
+                   type="number"
+                   placeholder="Id"
+                   maxlength="2"
+                   formControlName="id">
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-error *ngIf="searchProjectForm.controls['id'].hasError('required')">Introduzca un id</mat-error>
+            <mat-error
+                       *ngIf="searchProjectForm.controls['id'].hasError('min') || searchProjectForm.controls['id'].hasError('max')">
+              Formato inadecuado, debe ser un número entre 1 y 99</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="standard"
+                          class="full-width">
+            <input matInput
+                   #name
+                   type="text"
+                   formControlName="name">
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-error *ngIf="!this.projectFounded">Proyecto no encontrado.</mat-error>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button
+              color="primary"
+              [disabled]="searchProjectForm.invalid"
+              type="submit">Buscar</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
